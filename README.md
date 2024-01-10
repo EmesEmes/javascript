@@ -194,3 +194,103 @@ numeros.forEach(function(numero) {
   console.log(numero);
 });
 ```
+
+### Objetos literales
+Los objetos literales en JavaScript son una forma de definir objetos utilizando una sintaxis literal, es decir, especificando directamente las propiedades y sus valores en el código. Se definen utilizando llaves {} y se pueden asignar a variables. Cada propiedad se define como un par clave-valor, separados por dos puntos :. Las propiedades se separan entre sí por comas ,.
+
+```javascript
+let persona = {
+  nombre: 'Emilio',
+  edad: 30,
+  profesion: 'Desarrollador'
+};
+```
+
+#### Algunas operaciones con Objetos literales
+1. Acceder a propiedades
+```javascript
+let persona = { nombre: 'Juan', edad: 30 };
+console.log(persona.nombre); // 'Juan'
+console.log(persona['edad']); // 30
+```
+
+2. Modificar propiedades
+```javascript
+let persona = { nombre: 'Juan', edad: 30 };
+persona.nombre = 'Ana';
+console.log(persona.nombre); // 'Ana'
+```
+
+3. Agregar propiedades
+```javascript
+let persona = { nombre: 'Juan', edad: 30 };
+persona.profesion = 'Desarrollador';
+console.log(persona.profesion); // 'Desarrollador'
+```
+
+4. Eliminar propiedades
+```javascript
+let persona = { nombre: 'Juan', edad: 30 };
+delete persona.edad;
+console.log(persona.edad); // undefined
+```
+
+5. Verificar la existencia de propiedades
+```javascript
+let persona = { nombre: 'Juan', edad: 30 };
+console.log('nombre' in persona); // true
+console.log('altura' in persona); // false
+```
+
+6. Recorrer las propiedades de un objeto
+```javascript
+let persona = { nombre: 'Juan', edad: 30, profesion: 'Desarrollador' };
+for (let propiedad in persona) {
+  console.log(`La ${propiedad} de la persona es ${persona[propiedad]}`);
+}
+```
+
+#### Métos a través del objeto Objecto:
+
+1. Object.keys(objeto): Este método devuelve un arreglo de las propiedades (o claves) del objeto.
+```javascript
+let persona = { nombre: 'Juan', edad: 30 };
+console.log(Object.keys(persona)); // ['nombre', 'edad']
+```
+
+2. Object.values(objeto): Este método devuelve un arreglo de los valores de las propiedades del objeto.
+```javascript
+let persona = { nombre: 'Juan', edad: 30 };
+console.log(Object.values(persona)); // ['Juan', 30]
+```
+
+3. Object.entries(objeto): Este método devuelve un arreglo de arreglos, donde cada sub-arreglo es un par [clave, valor] del objeto.
+```javascript
+let persona = { nombre: 'Juan', edad: 30 };
+console.log(Object.entries(persona)); // [['nombre', 'Juan'], ['edad', 30]]
+```
+
+4. Object.assign(destino, fuente1, fuente2, ...): Este método se utiliza para copiar los valores de todas las propiedades enumerables de uno o más objetos fuente a un objeto destino.
+```javascript
+let objeto1 = { a: 1, b: 2 };
+let objeto2 = { b: 3, c: 4 };
+let combinado = Object.assign({}, objeto1, objeto2);
+console.log(combinado); // { a: 1, b: 3, c: 4 }
+```
+
+5. Object.freeze(objeto): Este método se utiliza para prevenir la modificación de las propiedades y valores de un objeto, y prevenir la adición y eliminación de propiedades.
+```javascript
+let persona = { nombre: 'Juan', edad: 30 };
+Object.freeze(persona);
+persona.nombre = 'Ana'; // No tiene efecto
+console.log(persona.nombre); // 'Juan'
+```
+
+6. Object.seal(objeto): Este método se utiliza para prevenir la adición y eliminación de propiedades, pero permite la modificación de las propiedades existentes.
+```javascript
+let persona = { nombre: 'Juan', edad: 30 };
+Object.seal(persona);
+persona.nombre = 'Ana'; // Sí tiene efecto
+console.log(persona.nombre); // 'Ana'
+```
+
